@@ -1,0 +1,30 @@
+import mongoose from "mongoose";
+
+const userSchema = mongoose.Schema({
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  firstName: {
+    type: String,
+  },
+  lastName: {
+    type: String,
+  },
+  img: {
+    type: String,
+    default:
+      "data:image/png;base64,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",
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  phone: {
+    type: Number,
+  },
+});
+
+const User = mongoose.model("users", userSchema);
+export default User;
