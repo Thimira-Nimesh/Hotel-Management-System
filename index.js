@@ -45,6 +45,8 @@ import bodyParser from "body-parser";
 import express from "express";
 import userRouter from "./Routes/userRouter.js";
 import roomsRouter from "./Routes/roomsRouter.js";
+import roomboyRouter from "./Routes/RoomboyRouter.js";
+import galleryRouter from "./Routes/GalleryRoutes.js";
 import mongoose from "mongoose";
 
 const app = express();
@@ -65,6 +67,8 @@ mongoose
 
 app.use("/api/users", userRouter);
 app.use("/api/rooms", roomsRouter);
+app.use("/api/roomboys", roomboyRouter);
+app.use("/api/gallery", galleryRouter);
 
 app.listen(5000, (req, res) => {
   console.log("Server is Running on port 5000");
