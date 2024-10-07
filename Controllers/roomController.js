@@ -15,6 +15,22 @@ export function getRooms(req, res) {
 }
 
 export function postRooms(req, res) {
+  const user = req.body.user;
+
+  if (user == null) {
+    res.status(404).json({
+      message: "You need to login before Create Rooms",
+    });
+    return;
+  }
+
+  if (user?.userType != "admin") {
+    res.status(403).json({
+      message: "You don't have permission to Create Rooms",
+    });
+    return;
+  }
+
   const room = req.body;
   console.log(room);
 
