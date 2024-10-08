@@ -1,7 +1,7 @@
 import Gallery from "../Models/galleryModel.js";
 
 export function postGallery(req, res) {
-  const user = req.body.user;
+  const user = req.user;
 
   if (user == null) {
     res.status(403).json({

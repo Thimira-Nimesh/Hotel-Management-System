@@ -20,7 +20,7 @@ app.use((req, res, next) => {
   if (token != null) {
     jwt.verify(token, "secretkey", (err, decoded) => {
       if (decoded != null) {
-        req.body.user = decoded;
+        req.user = decoded;
         next();
       } else {
         next();
@@ -30,6 +30,23 @@ app.use((req, res, next) => {
     next();
   }
 });
+
+// app.use((req,res,next)=>{
+//   const token = req.header("Authorization")?.replace("Bearer ","");
+
+//   if(token!=null){
+//     jwt.verify(token,"secretkey",(err,decoded)=>{
+//       if(decoded!=null){
+//         req.body.user = decoded;
+//         next()
+//       }else{
+//         next()
+//       }
+//     })
+//   }else{
+//     next()
+//   }
+// })
 
 mongoose
   .connect(connectionString)
