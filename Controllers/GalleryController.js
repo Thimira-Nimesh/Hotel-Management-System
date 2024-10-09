@@ -33,16 +33,16 @@ export function postGallery(req, res) {
     });
 }
 
-export function getGallery(req, res) {
-  Gallery.find()
-    .then((gallerylist) => {
-      res.json({
-        message: gallerylist,
-      });
-    })
-    .catch(() => {
-      res.status(500).json({
-        message: "Gallery List Error",
-      });
-    });
-}
+// export function getGallery(req, res) {
+//   Gallery.find()
+//     .then((gallerylist) => {
+//       res.json({
+//         message: gallerylist,
+//       });
+//     })
+//     .catch(() => {
+//       res.status(500).json({
+//         message: "Gallery List Error",
+//       });
+//     });
+// }
